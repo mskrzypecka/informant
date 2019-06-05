@@ -1,11 +1,11 @@
 {% extends 'informant/base.html' %}
-    {% block content %}
-    {% for post in posts %}<divclass="post">
-    <pclass="date">utworzono: {{ post.created_date }}</p>
-        <h1>
-            <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
-        </h1>
-        <p>{{ post.text|truncatechars:200 }}</p>
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">utworzono: {{ post.created_date }}</div>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.text|truncatechars:200 }}</p>
         </div>
     {% endfor %}
 {% endblock %}
