@@ -4,6 +4,7 @@
     {% if form.errors %}
         <p>Złe dane logowania. Spróbuj ponownie.</p>
     {% endif %}
+    <h2>Zaloguj się</h2>
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
         <div class="p-2">
@@ -18,7 +19,7 @@
                 </tr>
             </table>
         </div>
-        <button type="submit" class="btn btn-primary">Zapisz</button>
+        <button type="submit" class="btn btn-primary">Zaloguj</button>
         <input type="hidden" name="next" value="{{ next }}" />
     </form>
 {% endblock %}
