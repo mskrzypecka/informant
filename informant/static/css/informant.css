@@ -7,6 +7,11 @@
     background-color: #ebebfa;
 }
 
+.bus {
+    font-size: 120px !important;
+    color: white !important;
+}
+
 h1 a, h2 a {
     color: #5c5cd6;
     font-family: 'Righteous';
