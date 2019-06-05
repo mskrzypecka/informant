@@ -1,8 +1,6 @@
-body {
-    /* margin-left: 20%;
-    margin-right: 20%;
-    padding-left: 15px;
-    padding-right: 15px; */
+.btn-primary {
+    background-color: #5c5cd6 !important;
+    border-color: #5c5cd6 !important;
 }
 
 .main {
