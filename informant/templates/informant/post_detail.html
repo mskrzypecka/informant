@@ -9,7 +9,14 @@
         {% else %}
             <a class="btn btn-primary mb-1 mt-1" href="{% url 'post_publish' pk=post.pk %}">Publikuj</a>
         {% endif %}
-        
+        {% if post.transport == 'TRAM' %}
+            <i class="fa fa-train" aria-hidden="true"></i>
+        {% elif post.transport == 'BUS' %}
+            <i class="fa fa-bus" aria-hidden="true"></i>
+        {% else %}
+            <i class="fa fa-train" aria-hidden="true"></i>
+            <i class="fa fa-bus" aria-hidden="true"></i>
+        {% endif %}
         <h2>{{ post.title }}
             {% if user.is_authenticated and user == post.author %}
                 <a href="{% url 'post_edit' pk=post.pk %}"><i class="fa fa-edit"></i></a>

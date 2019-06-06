@@ -7,9 +7,16 @@
     background-color: #ebebfa;
 }
 
+.fa {
+    color: #5c5cd6 !important;
+}
+
+.bus, .top-menu .fa {
+    color: white !important; 
+}
+
 .bus {
     font-size: 90px !important;
-    color: white !important; 
 }
 
 h1 a, h2 a {

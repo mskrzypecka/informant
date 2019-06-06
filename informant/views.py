@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .helpers import TransportChoice
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -43,7 +44,9 @@ def post_new(request):
             post.save()
             return redirect('post_detail', pk=post.pk)
     else:
-        form = PostForm()
+        post = Post()
+        post.transport = TransportChoice.BOTH
+        form = PostForm(instance=post)
     return render(request, 'informant/post_new.html', {'form': form})
 
 @login_required

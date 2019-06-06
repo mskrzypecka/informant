@@ -5,6 +5,14 @@
         {% if user.is_authenticated and user == post.author %}
         <div class="post">
             <div class="date">utworzono: {{ post.created_date }}</div>
+            {% if post.transport == 'TRAM' %}
+                <i class="fa fa-train" aria-hidden="true"></i>
+            {% elif post.transport == 'BUS' %}
+                <i class="fa fa-bus" aria-hidden="true"></i>
+            {% else %}
+                <i class="fa fa-train" aria-hidden="true"></i>
+                <i class="fa fa-bus" aria-hidden="true"></i>
+            {% endif %}
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
             <p>{{ post.text|truncatechars:200 }}</p>
             <h6>~ {{ post.author }}</h6>

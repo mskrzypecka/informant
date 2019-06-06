@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-
+from .helpers import TransportChoice
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
@@ -10,6 +10,11 @@ class Post(models.Model):
             default=timezone.now)
     published_date = models.DateTimeField(
             blank=True, null=True)
+    transport = models.CharField(
+      max_length=25,
+      choices=[(tag.name, tag.value) for tag in TransportChoice],
+      default=TransportChoice.BOTH
+      )
 
     def publish(self):
         self.published_date = timezone.now()
