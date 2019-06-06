@@ -17,7 +17,7 @@
             {% endif %}
         </h2>
         <p>{{ post.text|linebreaksbr }}</p>
-        <h6>~ {{ post.author }}</h6>
+        <h6>~ <a href="{% url 'profile' pk=post.author.pk %}">{{ post.author }}</a></h6>
     </div>
     <hr>
     <a class="btn btn-primary" href="{% url 'add_comment_to_post' pk=post.pk %}">Dodaj komentarz</a>
