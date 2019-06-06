@@ -44,7 +44,7 @@ def post_new(request):
             return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
-    return render(request, 'informant/post_edit.html', {'form': form})
+    return render(request, 'informant/post_new.html', {'form': form})
 
 @login_required
 def post_edit(request, pk):

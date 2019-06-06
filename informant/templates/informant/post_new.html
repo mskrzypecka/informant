@@ -2,12 +2,12 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-    <h2>Edytuj post</h2>
+    <h2>Nowy post</h2>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-primary">Zapisz</button>
+        <button type="submit" class="save btn btn-primary">Dodaj</button>
     </form>
     {% else %}
-    <h4>Nie masz uprawnień, aby edytować ten post.</h4>
+    <h4>Nie masz uprawnień, aby dodać post - zaloguj się.</h4>
     {% endif %}
 {% endblock %}

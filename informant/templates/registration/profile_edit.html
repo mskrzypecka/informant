@@ -1,7 +1,7 @@
 {% extends 'informant/base.html' %}
 
 {% block content %}
-    {% if user.is_authenticated and user == userobj %}
+    {% if user.is_authenticated %}
     <h2>Edytuj profil</h2>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
