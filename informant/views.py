@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from .helpers import TransportChoice
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'informant/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
@@ -64,15 +64,15 @@ def post_edit(request, pk):
     return render(request, 'informant/post_edit.html', {'form': form})
 
 def post_bus_list(request):
-    posts = Post.objects.filter(transport='BUS').order_by('created_date')
+    posts = Post.objects.filter(transport='BUS').order_by('-published_date')
     return render(request,'informant/post_list.html', {'posts': posts})
 
 def post_tram_list(request):
-    posts = Post.objects.filter(transport='TRAM').order_by('created_date')
+    posts = Post.objects.filter(transport='TRAM').order_by('-published_date')
     return render(request,'informant/post_list.html', {'posts': posts})
 
 def post_both_list(request):
-    posts = Post.objects.filter(transport='BOTH').order_by('created_date')
+    posts = Post.objects.filter(transport='BOTH').order_by('-published_date')
     return render(request,'informant/post_list.html', {'posts': posts})
 
 @login_required
