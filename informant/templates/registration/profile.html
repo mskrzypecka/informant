@@ -2,13 +2,13 @@
 
 {% block content %}
     <div>
-        <h2>{{ user.username }}
-            {% if user.is_authenticated %}
-                <a href="{% url 'profile_edit' pk=user.pk %}"><i class="fa fa-edit"></i></a>
+        <h2>{{ userobj.username }}
+            {% if user.is_authenticated and user == userobj %}
+                <a href="{% url 'profile_edit' pk=userobj.pk %}"><i class="fa fa-edit"></i></a>
             {% endif %}
         </h2>
-        <p>{{ user.first_name }} {{ user.last_name }}</p>
-        <p>email: {{ user.email }}</p>
-        <p>dołączenie: {{ user.date_joined }}</p>
+        <p>{{ userobj.first_name }} {{ userobj.last_name }}</p>
+        <p>email: {{ userobj.email }}</p>
+        <p>dołączenie: {{ userobj.date_joined }}</p>
     </div>
 {% endblock %}

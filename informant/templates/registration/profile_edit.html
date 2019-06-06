@@ -1,9 +1,13 @@
 {% extends 'informant/base.html' %}
 
 {% block content %}
+    {% if user.is_authenticated and user == userobj %}
     <h2>Edytuj profil</h2>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-primary">Zapisz</button>
     </form>
+    {% else %}
+    <h4>Nie masz uprawnień, aby edytować ten profil.</h4>
+    {% endif %}
 {% endblock %}

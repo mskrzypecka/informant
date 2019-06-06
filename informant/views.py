@@ -17,7 +17,7 @@ def post_detail(request, pk):
 
 def profile(request, pk):
     user = get_object_or_404(User, pk=pk)
-    return render(request, 'registration/profile.html', {'user': user})
+    return render(request, 'registration/profile.html', {'userobj': user})
 
 @login_required
 def profile_edit(request, pk):
