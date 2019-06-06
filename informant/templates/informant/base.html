@@ -9,18 +9,19 @@
     </head>
     <body>
         <div class="container main">
-            <div class="page-header">
-                {% if not user.is_authenticated %}
-                    <a href="{% url 'login' %}" class="top-menu"><i class="fa fa-sign-in"></i></a>
-                    <a href="{% url 'register' %}" class="top-menu"><i class="fa fa-user-plus"></i></a>
-                {% endif %}
-                {% if user.is_authenticated %}
-                    <a href="{% url 'post_new' %}" class="top-menu"><i class="fa fa-plus"></i></a>
-                    <a href="{% url 'post_draft_list' %}" class="top-menu"><i class="fa fa-edit"></i></a>
-                    <a href="{% url 'profile' pk=user.pk %}" class="top-menu"><i class="fa fa-user"></i></a>
-                    <a href="{% url 'logout' %}" class="top-menu"><i class="fa fa-sign-out"></i></a>
-                {% endif %}
-                <div class="grid">
+            <div class="grid">
+                <div class="page-header">
+                    {% if not user.is_authenticated %}
+                        <a href="{% url 'login' %}" class="top-menu"><i class="fa fa-sign-in"></i></a>
+                        <a href="{% url 'register' %}" class="top-menu"><i class="fa fa-user-plus"></i></a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'post_new' %}" class="top-menu"><i class="fa fa-plus"></i></a>
+                        <a href="{% url 'post_draft_list' %}" class="top-menu"><i class="fa fa-edit"></i></a>
+                        <a href="{% url 'profile' pk=user.pk %}" class="top-menu"><i class="fa fa-user"></i></a>
+                        <a href="{% url 'logout' %}" class="top-menu"><i class="fa fa-sign-out"></i></a>
+                    {% endif %}
+                    
                     <div class="row">
                         <div class="col-md-2">
                             <i class="fa fa-bus bus"></i> 
@@ -29,6 +30,18 @@
                             <h1>
                                 <a href="/">Powiadomienia dotyczące komunikacji miejskiej<br/> we Wrocławiu</a>
                             </h1>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row mx-auto">
+                        <div class="col-md-4 text-center">
+                            <a href="{% url 'post_tram_list' %}" class="top-menu filter"><i class="fa fa-train p-2"></i>Tramwaje</a>
+                        </div>
+                        <div class="col-md-4 text-center">
+                                <a href="{% url 'post_both_list' %}" class="top-menu filter"><i class="fa fa-train p-2"></i><i class="fa fa-bus p-2"></i></a>
+                            </div>
+                        <div class="col-md-4 text-center">
+                            <a href="{% url 'post_bus_list' %}" class="top-menu filter"><i class="fa fa-bus p-2"></i>Autobusy</a>
                         </div>
                     </div>
                 </div>

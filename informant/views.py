@@ -63,6 +63,18 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'informant/post_edit.html', {'form': form})
 
+def post_bus_list(request):
+    posts = Post.objects.filter(transport='BUS').order_by('created_date')
+    return render(request,'informant/post_list.html', {'posts': posts})
+
+def post_tram_list(request):
+    posts = Post.objects.filter(transport='TRAM').order_by('created_date')
+    return render(request,'informant/post_list.html', {'posts': posts})
+
+def post_both_list(request):
+    posts = Post.objects.filter(transport='BOTH').order_by('created_date')
+    return render(request,'informant/post_list.html', {'posts': posts})
+
 @login_required
 def post_draft_list(request):
     posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
